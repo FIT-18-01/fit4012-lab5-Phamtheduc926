@@ -211,7 +211,7 @@ int main() {
 	outfile.open("message.aes", ios::out | ios::binary);
 	if (outfile.is_open())
 	{
-		outfile << encryptedMessage;
+		outfile.write(reinterpret_cast<char*>(encryptedMessage), paddedMessageLen);
 		outfile.close();
 		cout << "Wrote encrypted message to file message.aes" << endl;
 	}
